@@ -1,0 +1,34 @@
+From c6ea8744677b0a7741da0918c55b834ae1e6eaad Mon Sep 17 00:00:00 2001
+From: "Ye.Li" <B37916@freescale.com>
+Date: Thu, 5 Mar 2015 16:19:44 +0800
+Subject: [PATCH] MLK-10374 imx: mx6sx 14x14 arm2: Change dtb file name to
+ 14x14 arm2
+
+The default DTB file name used for i.MX6SX 14x14 lpddr2 arm2 board is
+17x17 arm2, since kernel has added a new dtb for 14x14 board,
+change the default file name to the new imx6sx-14x14-arm2.dtb
+
+Signed-off-by: Ye.Li <B37916@freescale.com>
+(cherry picked from commit bd706b49161dcf834ef80f1bfc8fa3caac8497ca)
+---
+ boards.cfg |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/boards.cfg b/boards.cfg
+index 2383d04..961bada 100644
+--- a/boards.cfg
++++ b/boards.cfg
+@@ -352,8 +352,8 @@ Active  arm         armv7          mx6         freescale       mx6slevk
+ 
+ Active  arm         armv7          mx6         freescale       mx6slevk            mx6slevk_spinor                      mx6slevk:IMX_CONFIG=board/freescale/mx6slevk/imximage.cfg,MX6SL,SYS_BOOT_SPINOR                                                   Fabio Estevam <fabio.estevam@freescale.com>
+ Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_17x17_arm2               mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/imximage.cfg,MX6SX,DEFAULT_FDT_FILE="imx6sx-17x17-arm2.dtb"                                                                 Fabio Estevam <fabio.estevam@freescale.com>
+-Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_14x14_lpddr2_arm2        mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/mx6sx_14x14_lpddr2_arm2.cfg,MX6SX,MX6SX_14x14,LPDDR2,DEFAULT_FDT_FILE="imx6sx-17x17-arm2.dtb"                       Fabio Estevam <fabio.estevam@freescale.com>
+-Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_14x14_lpddr2_arm2_nand        mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/mx6sx_14x14_lpddr2_arm2.cfg,MX6SX,MX6SX_14x14,LPDDR2,DEFAULT_FDT_FILE="imx6sx-17x17-arm2.dtb",SYS_BOOT_NAND                       Fabio Estevam <fabio.estevam@freescale.com>
++Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_14x14_lpddr2_arm2        mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/mx6sx_14x14_lpddr2_arm2.cfg,MX6SX,MX6SX_14x14,LPDDR2,DEFAULT_FDT_FILE="imx6sx-14x14-arm2.dtb"                       Fabio Estevam <fabio.estevam@freescale.com>
++Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_14x14_lpddr2_arm2_nand        mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/mx6sx_14x14_lpddr2_arm2.cfg,MX6SX,MX6SX_14x14,LPDDR2,DEFAULT_FDT_FILE="imx6sx-14x14-arm2.dtb",SYS_BOOT_NAND                       Fabio Estevam <fabio.estevam@freescale.com>
+ Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_17x17_arm2_spinor     mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/imximage.cfg,MX6SX,DEFAULT_FDT_FILE="imx6sx-17x17-arm2.dtb",SYS_BOOT_SPINOR                                                                 Fabio Estevam <fabio.estevam@freescale.com>
+ Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_17x17_arm2_nand       mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/imximage.cfg,MX6SX,DEFAULT_FDT_FILE="imx6sx-17x17-arm2.dtb",SYS_BOOT_NAND                                                                 Fabio Estevam <fabio.estevam@freescale.com>
+ Active  arm         armv7          mx6         freescale       mx6sx_17x17_arm2  mx6sx_17x17_arm2_qspi2      mx6sx_17x17_arm2:IMX_CONFIG=board/freescale/mx6sx_17x17_arm2/imximage.cfg,MX6SX,DEFAULT_FDT_FILE="imx6sx-17x17-arm2.dtb",SYS_BOOT_QSPI                                                                 Fabio Estevam <fabio.estevam@freescale.com>
+-- 
+1.7.9.5
+

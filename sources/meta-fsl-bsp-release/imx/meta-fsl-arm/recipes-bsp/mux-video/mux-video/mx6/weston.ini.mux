@@ -1,0 +1,13 @@
+[core]
+idle-time=0
+
+[fbdev]
+transform=0
+
+[shell]
+background-color=0xFF0063B1
+panel-color=0xB0000F1A
+
+[launcher]
+icon=/usr/share/weston/terminal.png
+path=/usr/bin/weston-terminal

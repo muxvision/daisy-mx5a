@@ -1,0 +1,40 @@
+diff --git a/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad.inc b/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad.inc
+index 08440a2..e905134 100644
+--- a/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad.inc
++++ b/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad.inc
+@@ -16,6 +16,7 @@ PACKAGECONFIG ??= " \
+     ${@base_contains('DISTRO_FEATURES', 'directfb', 'directfb', '', d)} \
+     orc curl uvch264 neon \
+     hls sbc dash bz2 smoothstreaming \
++    faac faad \
+     "
+ # dash = Dynamic Adaptive Streaming over HTTP
+ PACKAGECONFIG[assrender]       = "--enable-assrender,--disable-assrender,libass"
+diff --git a/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-ugly.inc b/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-ugly.inc
+index 0dd011b..fd80ced 100644
+--- a/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-ugly.inc
++++ b/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-ugly.inc
+@@ -9,7 +9,7 @@ inherit gettext
+ 
+ 
+ PACKAGECONFIG ??= " \
+-    orc a52dec lame mad mpeg2dec \
++    orc a52dec lame mad mpeg2dec amrnb amrwb\
+     "
+ 
+ PACKAGECONFIG[a52dec]   = "--enable-a52dec,--disable-a52dec,liba52"
+@@ -19,11 +19,12 @@ PACKAGECONFIG[lame]     = "--enable-lame,--disable-lame,lame"
+ PACKAGECONFIG[mad]      = "--enable-mad,--disable-mad,libmad"
+ PACKAGECONFIG[mpeg2dec] = "--enable-mpeg2dec,--disable-mpeg2dec,mpeg2dec"
+ PACKAGECONFIG[x264]     = "--enable-x264,--disable-x264,x264"
++PACKAGECONFIG[amrnb]    = "--enable-amrnb,--disable-amrnb,opencore-amr"
++PACKAGECONFIG[amrwb]    = "--enable-amrwb,--disable-amrwb,opencore-amr"
++
+ 
+ 
+ EXTRA_OECONF += " \
+-    --disable-amrnb \
+-    --disable-amrwb \
+     --disable-sidplay \
+     --disable-twolame \
+     ${GSTREAMER_1_0_ORC} \

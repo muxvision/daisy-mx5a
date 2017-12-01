@@ -1,0 +1,37 @@
+From 6da2999779ad33e7eec05b13d9cf5c140f0c077d Mon Sep 17 00:00:00 2001
+From: Anson Huang <b20788@freescale.com>
+Date: Tue, 30 Dec 2014 13:44:56 +0800
+Subject: [PATCH 1/3] MLK-10343-1 ARM: imx: support low power idle for i.mx6sx
+ 14x14 lpddr2 board
+
+Add support for i.MX6SX 14x14 lpddr2 board support.
+
+Signed-off-by: Anson Huang <b20788@freescale.com>
+---
+ arch/arm/mach-imx/cpuidle-imx6sx.c |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-imx/cpuidle-imx6sx.c b/arch/arm/mach-imx/cpuidle-imx6sx.c
+index 159aa62..607dc93 100644
+--- a/arch/arm/mach-imx/cpuidle-imx6sx.c
++++ b/arch/arm/mach-imx/cpuidle-imx6sx.c
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright (C) 2014 Freescale Semiconductor, Inc.
++ * Copyright (C) 2014-2015 Freescale Semiconductor, Inc.
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License version 2 as
+@@ -158,6 +158,9 @@ int __init imx6sx_cpuidle_init(void)
+ 	const u32 *mmdc_offset_array;
+ 	u32 wfi_code_size, val;
+ 
++	if (total_suspend_size % 8 != 0)
++		total_suspend_size = (total_suspend_size / 8 + 1) * 8;
++
+ 	wfi_iram_base_phys = (void *)(iram_tlb_phys_addr + total_suspend_size);
+ 
+ 	/* Make sure wfi_iram_base is 8 byte aligned. */
+-- 
+1.7.9.5
+
